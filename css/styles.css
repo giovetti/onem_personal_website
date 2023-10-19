@@ -1,0 +1,357 @@
+/*
+COLOR PALETTE
+
+Dark green    #3c8453
+Sandy beige   #bcaa96
+Dark gray     #222222
+Light gray    #d3d4d6
+Off-white     #f6f6f6
+*/
+
+/* GLOBAL STYLES 
+------------------------------------*/
+/*
+https://www.paulirish.com/2012/box-sizing-border-box-ftw 
+*/
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /* setting the default font size to 10 pixels */
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+/* 
+#container {
+	width: 60%;
+	margin: auto;
+} */
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background: #f6f6f6;
+    margin: 0; 
+    color:rgb(55, 67, 79);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem; /* setting the font size back to 16px (see 62.5% paper- check link file)*/
+    line-height: 1.4;
+}
+h1, h2, h3{
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    margin: 0;
+}
+h1{
+    font-size: 7rem;
+    line-height: 1;
+}
+h2{
+    font-size: 3rem;
+}
+h3{
+    font-size: 2rem;
+}
+/* navigation */
+nav{
+    position:fixed;
+    /* top: 500px; */
+    left: 15px;
+}
+.navbar{
+    list-style-type: none;
+}
+/* links */
+a {
+    color:#3c8453 ;
+}
+
+a:hover{
+    color:#bcaa96 ;
+    text-decoration: none;
+}
+
+footer a{
+    color: #bcaa96;
+}
+
+footer a:hover{
+    color: #3c8453;
+}
+/* download pdf link "button" */
+.btn{
+    background: #3c8453;
+    color: #f6f6f6;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-size: 1rem;
+    display:inline-block;
+    padding: 7px;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.nav-fixer{
+    display: grid;
+    grid-template-columns:100px  1fr;
+    column-gap: 20px;
+}
+.content-wrapper{
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 900px;
+}
+
+.it-jobs, .it-jobs-relevant-course{
+    color:rgb(235, 108, 4);
+}
+/* HOME PAGE
+------------------------------------*/
+.home{
+    background:url(../images/bg-home-office-studio.jpg) no-repeat;
+    background-size: cover;
+    display: flex;   
+    flex-direction: column;
+}
+
+.home .content-wrapper{
+   flex: 1 0 auto;
+}
+.content-background{
+    background: rgb(255 255 255 / 0.9 );
+    padding: 30px;
+}
+
+@media  screen and (max-width:650px) {
+    .home .content-wrapper{
+        padding:10px;
+    }
+    .content-background{
+        padding: 20px;
+    }
+}
+/* RESUME PAGE - 
+------------------------------------*/
+.resume header::before{
+    background: url(../images/bg-home-office-studio.jpg) center;
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 300px;
+}
+.resume-section{
+    margin-bottom:50px ;
+}
+
+.resume-section h2{
+    border-bottom: 2px dashed #d3d4d6;
+}
+
+.download-link{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 1rem;
+}
+/* fixing the download button to the top left corner on screens smaller than 1200px, will not float with the screen scrolling */
+@media screen and (max-width: 1200px ) {
+    .download-link{
+        position:absolute;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .resume header::before{
+        height:200px;
+    }
+   h1{
+        font-size: 2.3rem;
+    }
+    h2{
+        font-size:1.2rem;
+    }
+    /* h1, h2 {
+            font-size: 200%;	
+        } */
+}
+
+
+/* PUBLICATIONS PAGE - Projects
+------------------------------------*/
+
+.publication-item{
+    margin: 30px 0;
+}
+
+.publication-item img {
+    width: 400px;
+}
+/* screens 860 or larger */
+@media screen and (min-width: 860px) {
+    .publication-item{
+        display: flow-root;
+    }
+    .publication-item img {
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+/* screens between 501 and 860 */
+@media screen and (min-width:501px) and (max-width: 859px) {
+    /* Do not need to use grid on this wrapper as the publications fit well on the lower screens */
+    /* .publication-wrapper{
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap:20px;
+    } */
+    .publication-item img{
+       width:100% ;
+    } 
+    h1{
+        font-size: 4rem;
+    }
+    h2{
+        font-size:2.2rem;
+    }  
+}
+/* screens smaller than 501 pixels */
+@media screen and (max-width: 500px) {
+    .publication-item img{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.stbrl{
+    background:rgb(233, 236, 238);
+} 
+
+.hpv-natsal3{
+    background:rgb(238, 241, 243);
+}
+
+.hpv-chlamydia{
+    background:rgb(191, 206, 214);
+}
+
+
+
+/* Profile
+------------------------------------*/
+
+/* Projects - IT
+------------------------------------*/
+
+/* RESUME PAGE - Work Experience section
+------------------------------------*/
+
+.work-item{
+    margin: 30px 0;
+}
+.work-details p{
+    margin: 0;
+}
+
+/* style to be applyed to screens higher than 859 pixels*/
+@media screen and (min-width: 860px) {
+    .work-item{
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        column-gap: 20px;
+    }
+    
+    .work-summary p:first-child{
+        margin-top: 0;
+    }
+
+}
+
+
+/* RESUME PAGE - Education section 
+------------------------------------*/
+
+.education-item{
+    margin: 30px 0;/*30 pixels top and bottom and 0 left and right*/
+}
+
+.education-item p{
+    margin: 0;    
+}
+
+/* FOOTER
+------------------------------------*/
+
+footer{
+    background: #474747;
+    color: #d3d4d6 ;
+    
+}
+
+.socials{
+    list-style-type: none;
+    padding: 0;
+}
+
+.socials li{
+    display:inline-block ;
+    margin-left: 10px;
+}
+
+.socials img{
+    width: 32px;  
+}
+
+.socials img:hover{
+    opacity: 0.5;
+}
+@media screen and (min-width: 860px) {
+    footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    }
+} 
+@media screen and (max-width: 859px) {
+    footer{
+    text-align: center;
+    padding: 10px;
+    }
+}   
+
+/* 
+@media screen and (max-width: 768px) {
+	#container {
+		width: 90%;	
+	}
+
+    .content-wrapper{
+        width: 80%;
+    }
+	
+	h1, h2 {
+		font-size: 100%;	
+	}
+} */
+
+/*
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
