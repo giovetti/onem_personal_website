@@ -12,7 +12,29 @@
   <body class="resume">
 
     <!-- <a class="btn download-link" href="FGCSresume.pdf">Download PDF</a> -->
+    <input type="file" id="FGCSresume" accept=".doc,.docx">
+<button onclick="convertToPDF()">Convert to PDF</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.18/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  async function convertToPDF() {
+    const file = document.getElementById('docFile').files[0];
+    if (!file) return;
     
+    // Convert DOCX to HTML
+    const arrayBuffer = await file.arrayBuffer();
+    const result = await mammoth.convertToHtml({ arrayBuffer });
+    
+    // Convert HTML to PDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.html(result.value, {
+      callback: () => doc.save('converted.pdf'),
+      margin: 15
+    });
+  }
+</script>
       <!-- // HEADER - INTRO  // -->
      
     <header>
